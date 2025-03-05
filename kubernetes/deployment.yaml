@@ -82,11 +82,11 @@ spec:
         - name: logs-volume
           mountPath: /app/logs
         env:
-        - name: API_KEY
+        - name: OPENWEATHERMAP_KEY
           valueFrom:
             secretKeyRef:
               name: weather-pipeline-secrets
-              key: API_KEY
+              key: OPENWEATHERMAP_KEY
         ports:
         - containerPort: 8000
           name: metrics
