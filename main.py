@@ -157,13 +157,14 @@ def main():
     )
 
 if __name__ == "__main__":
-    main()
-
-    # Keep the Prometheus metrics server running
-    logging.info("Pipeline completed successfully. Keeping the Prometheus metrics server alive.")
+    start_http_server(8000)  # Start Prometheus metrics server
 
     try:
         while True:
-            time.sleep(60)  # Keep running indefinitely
+            main()  # Run pipeline
+
+            # Keep the Prometheus metrics server running
+            logging.info("Pipeline completed successfully. Keeping the Prometheus metrics server alive.")
+            time.sleep(300)  # Keep running indefinitely
     except KeyboardInterrupt:
         logging.info("Shutting down gracefully...")
