@@ -22,7 +22,7 @@ from src.transform import WeatherDataTransformer
 from src.analyze import WeatherDataAnalyzer
 from src.load import WeatherDataLoader
 from src.utils import setup_monitoring
-from prometheus_client import Counter, Summary
+from prometheus_client import Counter, Summary, start_http_server 
 
 # Prometheus metrics
 PIPELINE_RUNS = Counter('weather_pipeline_runs', 'Number of pipeline runs')
