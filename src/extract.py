@@ -45,7 +45,7 @@ class WeatherDataExtractor:
         """
         self.config = self._load_config(config_path)
         self.api_url = self.config['api']['url']
-        self.api_key = os.getenv('API_KEY')
+        self.api_key = os.getenv('OPENWEATHERMAP_KEY')
         if not self.api_key:
             self.api_key = self.config['api']['key']
         self.cities = self.config['data']['cities']
