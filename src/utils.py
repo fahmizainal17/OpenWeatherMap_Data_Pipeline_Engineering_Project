@@ -148,7 +148,7 @@ def get_weather_icon(condition: str) -> str:
         'Mist': '🌫️',
         'Fog': '🌫️',
         'Haze': '🌫️',
-        'Smoke': '��️',
+        'Smoke': '🌫️',
         'Dust': '🌫️',
         'Sand': '🌫️',
         'Ash': '🌫️',
