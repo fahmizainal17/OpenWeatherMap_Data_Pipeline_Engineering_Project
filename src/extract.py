@@ -25,6 +25,14 @@ from prometheus_client import Counter, Gauge
 # Load environment variables
 load_dotenv()
 
+API_KEY = os.getenv("OPENWEATHERMAP_KEY")
+API_KEY = os.getenv("OPENWEATHERMAP_KEY")
+
+if not API_KEY:
+    raise ValueError("❌ ERROR: OPENWEATHERMAP_KEY is not set!")
+else:
+    print(f"✅ API Key Loaded: {API_KEY[:5]}... (hidden for security)")
+
 logger = logging.getLogger(__name__)
 
 # Prometheus metrics
@@ -45,7 +53,7 @@ class WeatherDataExtractor:
         """
         self.config = self._load_config(config_path)
         self.api_url = self.config['api']['url']
-        self.api_key = os.getenv('API_KEY')
+        self.api_key = os.getenv('OPENWEATHERMAP_KEY')
         if not self.api_key:
             self.api_key = self.config['api']['key']
         self.cities = self.config['data']['cities']
